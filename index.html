@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vannry Portfolio</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- CSS Integration -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sora: ['Sora', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              orange: '#FF7A00',
+              blue: '#00F0FF',
+              dark: '#050505',
+              card: '#111111',
+              light: '#F8F9FA',
+              'light-card': '#FFFFFF',
+            }
+          },
+          boxShadow: {
+            'neon-orange': '0 0 15px rgba(255, 122, 0, 0.4)',
+            'neon-blue': '0 0 15px rgba(0, 240, 255, 0.4)',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="custom-scrollbar relative">
+  <!-- Professional Background System -->
+  <div class="bg-system">
+    <div class="bg-blobs">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <div class="blob blob-4"></div>
+      <div class="blob blob-5"></div>
+    </div>
+    <div class="bg-dot-pattern"></div>
+    <div class="bg-grid-overlay"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full z-40 px-6 py-6 flex justify-between items-center glass border-b border-black/5 dark:border-white/5">
+    <div class="text-2xl font-black tracking-tighter cursor-pointer dark:text-white text-black">
+      RY<span class="text-brand-orange">.</span>
+    </div>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#portfolio" class="text-sm font-medium hover:text-brand-orange transition-colors dark:text-gray-300 text-gray-600">Portfolios</a>
+      <a href="#case-studies" class="text-sm font-medium hover:text-brand-orange transition-colors dark:text-gray-300 text-gray-600">Case Studies</a>
+      <button id="get-in-touch-btn" class="bg-brand-dark dark:bg-white text-white dark:text-black px-6 py-2 rounded-full text-sm font-bold hover:bg-brand-orange hover:text-white transition-all">
+        Get in Touch
+      </button>
+    </div>
+    <div class="md:hidden">
+      <button id="mobile-menu-btn" class="text-brand-orange">
+         <div class="w-6 h-1 bg-current mb-1"></div>
+         <div class="w-6 h-1 bg-current mb-1"></div>
+         <div class="w-6 h-1 bg-current"></div>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] glass flex flex-col items-center justify-center space-y-8 animate-fade-in transition-transform duration-500">
+    <button id="mobile-menu-close" class="absolute top-8 right-8 text-brand-orange text-3xl font-bold">&times;</button>
+    <a href="#portfolio" class="mobile-nav-link text-3xl font-black dark:text-white text-black hover:text-brand-orange transition-colors">Portfolio</a>
+    <a href="#case-studies" class="mobile-nav-link text-3xl font-black dark:text-white text-black hover:text-brand-orange transition-colors">Case Studies</a>
+    <button id="get-in-touch-mobile" class="bg-brand-orange text-white px-8 py-3 rounded-full text-lg font-bold hover:shadow-neon-orange transition-all">
+      Get in Touch
+    </button>
+  </div>
+
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" class="fixed top-24 right-8 z-50 w-12 h-12 rounded-full glass flex items-center justify-center hover:scale-110 transition-transform shadow-lg border border-white/10 dark:border-white/5">
+    <i data-lucide="sun" id="sun-icon" class="text-brand-orange hidden"></i>
+    <i data-lucide="moon" id="moon-icon" class="text-brand-orange"></i>
+  </button>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen pt-32 pb-20 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
+      <div class="flex-1 space-y-8 float-slow">
+        <div class="flex items-center gap-3 px-4 py-2 w-fit glass rounded-full border border-brand-orange/30 breathe-glow">
+          <i data-lucide="map-pin" class="text-brand-orange w-4"></i>
+          <span class="text-sm font-medium">Phnom Penh, Cambodia</span>
+          <div class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></div>
+        </div>
+        <h1 class="text-6xl md:text-8xl font-extrabold leading-tight tracking-tighter dark:text-white text-black overflow-hidden">
+          <div class="reveal-text delay-100">Hi, I'm <span class="dark:text-white text-black">RY</span></div>
+          <div class="reveal-text delay-200"><span class="neon-text-orange italic">WEB Designer</span></div>
+          <div class="reveal-text delay-300">Intelligent Worlds.</div>
+        </h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed reveal stagger-1">
+           AI Product Designer with  1 Month of experience blending neural networks with human-centric interfaces. Crafting digital products that unite business goals and user needs.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-4 reveal stagger-2">
+          <a href="C.V.pdf" download="Chum_Vannry_CV.pdf" class="px-8 py-4 bg-brand-orange text-white rounded-full font-bold flex items-center gap-2 hover:shadow-neon-orange transition-all duration-300 transform hover:-translate-y-1">
+            Download Resume <i data-lucide="download" class="w-5"></i>
+          </a>
+          <button class="px-8 py-4 border-2 border-brand-blue/30 text-brand-blue rounded-full font-bold flex items-center gap-2 hover:bg-brand-blue/10 transition-all duration-300">
+            <a href="https://t.me/+855977882005" target="_blank">Let's Chat</a> <i data-lucide="message-square" class="w-5"></i>
+          </button>
+        </div>
+      </div>
+      <div class="flex-1 relative flex justify-center items-center reveal scale-95 transition-all duration-500 float-delayed">
+        <div class="absolute w-[350px] h-[350px] md:w-[500px] md:h-[500px] rounded-full border-2 border-brand-orange/10 animate-spin-slow"></div>
+        <div class="absolute w-[400px] h-[400px] md:w-[550px] md:h-[550px] rounded-full border border-brand-blue/10 animate-spin-reverse-slow"></div>
+        <div class="relative z-10 w-64 h-64 md:w-96 md:h-96 rounded-[40px] overflow-hidden border-4 border-brand-orange/50 shadow-neon-orange group bg-black">
+          <!-- Video: Hidden/Blurred by default, clear on hover -->
+          <video src="cv.mp4" autoplay loop muted playsinline 
+            class="absolute inset-0 w-full h-full object-cover opacity-0 blur-[10px] scale-110 transition-all duration-700 ease-out group-hover:opacity-60 group-hover:blur-[1px] group-hover:scale-100 z-0">
+          </video>
+          <!-- Image: Visible by default, fades/scales out on hover -->
+          <img src="2.jpg" alt="Chum vannry" 
+            class="relative z-10 w-full h-full object-cover transition-all duration-700 ease-out group-hover:opacity-0 group-hover:scale-110">
+          
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-20 pointer-events-none opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
+        </div>
+        <div class="absolute -top-4 -right-4 md:top-10 md:right-10 glass p-4 rounded-2xl shadow-xl z-20">
+           <div class="text-brand-blue font-bold text-xl">1</div>
+           <div class="text-[10px] text-gray-500 dark:text-gray-400">Month Experience</div>
+        </div>
+        <div class="absolute -bottom-4 -left-4 md:bottom-20 md:left-0 glass p-4 rounded-2xl shadow-xl z-20 animate-pulse-slow">
+           <div class="flex items-center gap-2">
+             <div class="w-8 h-8 rounded-full bg-brand-orange/20 flex items-center justify-center text-brand-orange">AI</div>
+             <div>
+               <div class="dark:text-white text-black font-bold text-sm">Deep Learning</div>
+               <div class="text-[10px] text-gray-500 dark:text-gray-400">Expert Specialist</div>
+             </div>
+           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 px-6 max-w-7xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="text-center group reveal stagger-1">
+          <div class="text-5xl md:text-7xl font-extrabold dark:text-white text-black mb-2 transition-transform duration-300 group-hover:scale-110">2+<span class="text-brand-orange">.</span></div>
+          <div class="text-gray-500 dark:text-gray-400 uppercase tracking-widest text-xs font-semibold group-hover:text-brand-blue transition-colors duration-300">Years Experience</div>
+        </div>
+        <div class="text-center group reveal stagger-2">
+          <div class="text-5xl md:text-7xl font-extrabold dark:text-white text-black mb-2 transition-transform duration-300 group-hover:scale-110">10+<span class="text-brand-orange">.</span></div>
+          <div class="text-gray-500 dark:text-gray-400 uppercase tracking-widest text-xs font-semibold group-hover:text-brand-blue transition-colors duration-300">Projects Delivered</div>
+        </div>
+        <div class="text-center group reveal stagger-3">
+          <div class="text-5xl md:text-7xl font-extrabold dark:text-white text-black mb-2 transition-transform duration-300 group-hover:scale-110">11<span class="text-brand-orange">.</span></div>
+          <div class="text-gray-500 dark:text-gray-400 uppercase tracking-widest text-xs font-semibold group-hover:text-brand-blue transition-colors duration-300">Happy Clients</div>
+        </div>
+        <div class="text-center group reveal stagger-4">
+          <div class="text-5xl md:text-7xl font-extrabold dark:text-white text-black mb-2 transition-transform duration-300 group-hover:scale-110">9+<span class="text-brand-orange">.</span></div>
+          <div class="text-gray-500 dark:text-gray-400 uppercase tracking-widest text-xs font-semibold group-hover:text-brand-blue transition-colors duration-300">AI Models Deployed</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-32 px-6 max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+        <div class="reveal">
+          <h2 class="text-brand-orange text-sm font-bold uppercase tracking-[0.3em] mb-4">Selected Work</h2>
+          <h3 class="text-5xl md:text-7xl font-bold dark:text-white text-black">Showcase<span class="text-brand-blue">.</span></h3>
+        </div>
+        <div class="flex gap-4">
+          <button class="px-6 py-3 rounded-full border border-black/10 dark:border-white/10 text-sm font-bold hover:bg-black/5 dark:hover:bg-white/5 dark:text-white text-black">All</button>
+          <button class="px-6 py-3 rounded-full border border-black/10 dark:border-white/10 text-sm font-bold hover:bg-black/5 dark:hover:bg-white/5 dark:text-white text-black">AI Tools</button>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Project 1 -->
+        <div class="group cursor-pointer reveal stagger-1 hover-lift">
+          <div class="relative aspect-[4/3] rounded-[40px] overflow-hidden mb-8 border border-black/5 dark:border-white/5 shadow-2xl transition-all duration-700 group-hover:shadow-neon-blue/20 glass-shimmer">
+            <img src="design.jpg" alt="Synthetix AI" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-12">
+              <button class="w-16 h-16 rounded-full bg-brand-blue text-brand-dark flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                <i data-lucide="external-link"></i>
+              </button>
+            </div>
+          </div>
+          <div>
+            <div class="text-brand-blue text-xs font-bold uppercase tracking-widest mb-3">Product Design</div>
+            <h4 class="text-3xl font-bold mb-3 group-hover:text-brand-orange transition-colors duration-300 dark:text-white text-black">Synthetix AI</h4>
+            <p class="text-gray-600 dark:text-gray-400 text-lg">A revolutionary generative workspace for digital artists.</p>
+          </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="group cursor-pointer reveal stagger-2 hover-lift">
+          <div class="relative aspect-[4/3] rounded-[40px] overflow-hidden mb-8 border border-black/5 dark:border-white/5 shadow-2xl transition-all duration-700 group-hover:shadow-neon-blue/20 glass-shimmer">
+            <img src="webai.jpg" alt="Cryo Wallet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-12">
+              <button class="w-16 h-16 rounded-full bg-brand-blue text-brand-dark flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                <i data-lucide="external-link"></i>
+              </button>
+            </div>
+          </div>
+          <div>
+            <div class="text-brand-blue text-xs font-bold uppercase tracking-widest mb-3">Web3 / Fintech</div>
+            <h4 class="text-3xl font-bold mb-3 group-hover:text-brand-orange transition-colors duration-300 dark:text-white text-black">Cryo Wallet</h4>
+            <p class="text-gray-600 dark:text-gray-400 text-lg">Secure, neon-themed cold storage interface for crypto assets.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="py-32 px-6 max-w-7xl mx-auto overflow-hidden">
+      <div class="mb-20 reveal">
+        <h2 class="text-brand-blue text-sm font-bold uppercase tracking-[0.3em] mb-4">Deep Dives</h2>
+        <h3 class="text-5xl md:text-7xl font-bold dark:text-white text-black">Case Studies<span class="text-brand-orange">.</span></h3>
+      </div>
+      
+      <div class="flex flex-col gap-32">
+        <!-- Case Study 1 -->
+        <div class="flex flex-col lg:flex-row items-center gap-16 group reveal">
+          <div class="flex-1 order-2 lg:order-1 reveal-left stagger-1">
+            <div class="text-brand-orange font-bold text-sm uppercase tracking-widest mb-4">AI Research</div>
+            <h4 class="text-4xl md:text-5xl font-extrabold mb-6 dark:text-white text-black leading-tight">Neural Interface <br>Design Systems</h4>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-xl leading-relaxed">
+              How we built a design system specifically for AI-driven interfaces, focusing on cognitive load reduction and real-time neural feedback loops.
+            </p>
+            <div class="flex flex-wrap gap-4 mb-8">
+              <span class="px-4 py-2 glass rounded-xl text-xs font-bold dark:text-gray-300 text-gray-600 border border-white/5">Research</span>
+              <span class="px-4 py-2 glass rounded-xl text-xs font-bold dark:text-gray-300 text-gray-600 border border-white/5">UI/UX</span>
+              <span class="px-4 py-2 glass rounded-xl text-xs font-bold dark:text-gray-300 text-gray-600 border border-white/5">AI Ethics</span>
+            </div>
+            <button class="text-brand-orange font-bold flex items-center gap-2 group/btn hover:translate-x-2 transition-transform">
+              Read Full Story <i data-lucide="arrow-right" class="w-5 transition-transform group-hover/btn:translate-x-1"></i>
+            </button>
+          </div>
+          <div class="flex-1 order-1 lg:order-2 relative reveal-right stagger-1 hover-lift">
+            <div class="aspect-square md:aspect-video rounded-[40px] overflow-hidden glass border border-white/10 group-hover:border-brand-orange/30 transition-all duration-500 glass-shimmer">
+              <img src="webai.jpg" alt="Neural Case Study" class="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+            </div>
+            <div class="absolute -bottom-6 -right-6 w-32 h-32 glass rounded-full flex items-center justify-center border border-white/10 animate-spin-slow">
+              <div class="text-[10px] font-black text-brand-orange tracking-widest text-center">AI DESIGN • 2026 • </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 2 -->
+        <div class="flex flex-col lg:flex-row items-center gap-16 group reveal">
+          <div class="flex-1 relative reveal-left stagger-1 hover-lift">
+            <div class="aspect-square md:aspect-video rounded-[40px] overflow-hidden glass border border-white/10 group-hover:border-brand-blue/30 transition-all duration-500 glass-shimmer">
+              <img src="design.jpg" alt="Eco Case Study" class="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+            </div>
+          </div>
+          <div class="flex-1 reveal-right stagger-1">
+            <div class="text-brand-blue font-bold text-sm uppercase tracking-widest mb-4">Graphic Design</div>
+            <h4 class="text-4xl md:text-5xl font-extrabold mb-6 dark:text-white text-black leading-tight">Design System and Photography <br>for Everyone</h4>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-xl leading-relaxed">
+A case study on blending creativity and clarity to simplify web and graphic design into experiences that truly connect with users.            </p>
+            <div class="flex flex-wrap gap-4 mb-8">
+              <span class="px-4 py-2 glass rounded-xl text-xs font-bold dark:text-gray-300 text-gray-600 border border-white/5">Web Design</span>
+              <span class="px-4 py-2 glass rounded-xl text-xs font-bold dark:text-gray-300 text-gray-600 border border-white/5">Photography</span>
+              <span class="px-4 py-2 glass rounded-xl text-xs font-bold dark:text-gray-300 text-gray-600 border border-white/5">Figma</span>
+            </div>
+            <button class="text-brand-blue font-bold flex items-center gap-2 group/btn hover:translate-x-2 transition-transform">
+              Read Full Story <i data-lucide="arrow-right" class="w-5 transition-transform group-hover/btn:translate-x-1"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-32 px-6 overflow-hidden relative">
+      <div class="max-w-7xl mx-auto">
+        <div class="mb-20 reveal">
+          <h2 class="text-brand-blue text-sm font-bold uppercase tracking-[0.3em] mb-4">The Journey</h2>
+          <h3 class="text-5xl md:text-7xl font-bold dark:text-white text-black">Timeline<span class="text-brand-orange">.</span></h3>
+        </div>
+        <div class="flex flex-col space-y-12">
+          <div class="flex gap-8 items-start reveal-left stagger-1 hover-lift">
+            <div class="flex flex-col items-center">
+              <div class="w-6 h-6 rounded-full bg-brand-blue shadow-neon-blue"></div>
+              <div class="w-1 h-32 bg-black/10 dark:bg-white/10"></div>
+            </div>
+            <div class="glass p-8 rounded-[32px] border border-brand-blue/30 flex-1 glass-shimmer">
+              <span class="px-4 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-black">2026 - Present</span>
+              <h4 class="text-2xl font-extrabold mt-4 mb-1 dark:text-white text-black">Web Designer & AI Designer</h4>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">ANT Technology</p>
+              <p class="text-gray-600 dark:text-gray-500 text-sm">Internship 2Months</p>
+            </div>
+          </div>
+          <div class="flex gap-8 items-start grayscale opacity-50 reveal-left stagger-2 hover-lift">
+            <div class="flex flex-col items-center">
+              <div class="w-6 h-6 rounded-full bg-black/20 dark:bg-white/20"></div>
+              <div class="w-1 h-24 bg-black/10 dark:bg-white/10"></div>
+            </div>
+            <div class="glass p-8 rounded-[32px] border border-black/5 dark:border-white/5 flex-1 glass-shimmer">
+              <span class="px-4 py-1 rounded-full bg-gray-500/10 text-gray-500 text-xs font-black">2023 - 2025</span>
+              <h4 class="text-2xl font-extrabold mt-4 mb-1 dark:text-white text-black">IT Support and Graphic Designer</h4>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">Asia Europe University</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 px-6 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div class="grid grid-cols-2 gap-6 reveal-left">
+          <div data-modal="purpose" class="glass p-8 rounded-3xl border border-black/5 dark:border-white/5 hover:border-brand-blue/30 transition-all duration-300 hover-lift glass-shimmer cursor-pointer">
+            <div class="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-6"><i data-lucide="target"></i></div>
+            <h4 class="text-xl font-bold mb-4 dark:text-white text-black">Purpose Driven</h4>
+            <p class="text-gray-600 dark:text-gray-400 text-sm">Design with intent and lasting value.</p>
+          </div>
+          <div data-modal="iteration" class="mt-8 glass p-8 rounded-3xl border border-black/5 dark:border-white/5 hover:border-brand-blue/30 transition-all duration-300 hover-lift glass-shimmer cursor-pointer">
+            <div class="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-6"><i data-lucide="zap"></i></div>
+            <h4 class="text-xl font-bold mb-4 dark:text-white text-black">Fast Iteration</h4>
+            <p class="text-gray-600 dark:text-gray-400 text-sm">Rapid prototyping for optimal solutions.</p>
+          </div>
+        </div>
+        <div class="space-y-8 reveal-right">
+          <h2 class="text-brand-orange text-sm font-bold uppercase tracking-[0.3em] mb-4">About Me</h2>
+          <h3 class="text-5xl md:text-7xl font-bold dark:text-white text-black">What I <span class="neon-text-blue italic">Do</span></h3>
+          <p class="text-xl text-gray-700 dark:text-gray-300 leading-relaxed">Solving real-world problems through intelligent design.</p>
+          <button data-modal="methodology" class="flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-full border border-brand-orange flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all">→</div>
+            <span class="text-lg font-bold dark:text-white text-black">Our Methodology</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-40 px-6 text-center reveal">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-7xl md:text-9xl font-extrabold mb-12 tracking-tighter dark:text-white text-black">
+          Let's <span class="neon-text-orange italic">Build</span> Together.
+        </h2>
+        <div class="flex flex-wrap justify-center gap-8">
+          <div class="group">
+            <div class="text-gray-500 dark:text-gray-400 text-sm uppercase mb-2">Direct Mail</div>
+            <div class="text-2xl md:text-4xl font-bold dark:text-white text-black">chumvannry210@gmail.com</div>
+          </div>
+          <div class="h-16 w-[1px] bg-black/10 dark:bg-white/10 hidden md:block"></div>
+          <div class="flex gap-6 justify-center mt-2 reveal stagger-1">
+             <a href="https://www.facebook.com/chum.vannry" target="_blank" class="social-link">
+               <i data-lucide="facebook" class="w-5"></i>
+             </a>
+             <a href="https://x.com/CVannry72836" target="_blank" class="social-link">
+               <i data-lucide="twitter" class="w-5"></i>
+             </a>
+             <a href="https://github.com/" target="_blank" class="social-link">
+               <i data-lucide="github" class="w-5"></i>
+             </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="pb-32 pt-10 px-6 border-t border-black/5 dark:border-white/5 text-center">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="text-gray-500 text-sm">© 2025 Ry Portfolio cc.</div>
+      <div class="flex gap-8 text-sm font-bold text-gray-500 dark:text-gray-400">
+        <a href="javascript:void(0)" id="privacy-link">Privacy</a><a href="javascript:void(0)" id="terms-link">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Nav Bar -->
+  <nav class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 px-4 py-3 glass rounded-full shadow-2xl flex items-center gap-2">
+    <button data-section="home" class="flex items-center gap-2 px-4 py-2 rounded-full nav-active bg-brand-orange text-white">
+      <i data-lucide="home" class="w-5"></i> <span class="text-xs font-semibold">Home</span>
+    </button>
+    <button data-section="portfolio" class="flex items-center gap-2 px-4 py-2 rounded-full text-gray-500 dark:text-gray-400">
+      <i data-lucide="briefcase" class="w-5"></i> <span class="hidden md:block text-xs font-semibold">Portfolio</span>
+    </button>
+    <button data-section="case-studies" class="flex items-center gap-2 px-4 py-2 rounded-full text-gray-500 dark:text-gray-400">
+      <i data-lucide="book-open" class="w-5"></i> <span class="hidden md:block text-xs font-semibold">Studies</span>
+    </button>
+    <button data-section="experience" class="flex items-center gap-2 px-4 py-2 rounded-full text-gray-500 dark:text-gray-400">
+      <i data-lucide="layout-grid" class="w-5"></i> <span class="hidden md:block text-xs font-semibold">Timeline</span>
+    </button>
+    <button data-section="about" class="flex items-center gap-2 px-4 py-2 rounded-full text-gray-500 dark:text-gray-400">
+      <i data-lucide="user" class="w-5"></i> <span class="hidden md:block text-xs font-semibold">About</span>
+    </button>
+  </nav>
+
+  <!-- Modals -->
+  <div id="modal-overlay" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-6 opacity-0 transition-opacity duration-300">
+    <div id="modal-content" class="glass max-w-2xl w-full max-h-[80vh] overflow-y-auto rounded-[32px] border border-white/10 p-8 md:p-12 relative transform scale-95 transition-transform duration-300 custom-scrollbar">
+      <button id="modal-close" class="absolute top-6 right-6 text-2xl text-gray-400 hover:text-brand-orange transition-colors">&times;</button>
+      <div id="modal-body" class="space-y-6">
+        <!-- Content will be injected here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- JS Integration -->
+  <script src="script.js"></script>
+</body>
+</html>
