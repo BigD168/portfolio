@@ -1,6 +1,4 @@
-/**
- * Alex Rivera Portfolio - Static Version Logic
- */
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Initialize Lucide Icons
@@ -371,3 +369,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Inside your scrollSpy function, change this:
+function scrollSpy() {
+    // Use a percentage of the screen height instead of a fixed 300px
+    const scrollPosition = window.scrollY + (window.innerHeight * 0.3);
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const id = section.getAttribute('id');
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            navButtons.forEach(btn => {
+                btn.classList.remove('nav-active', 'bg-brand-orange', 'text-white');
+                btn.classList.add('text-gray-500');
+                
+                if (btn.getAttribute('data-section') === id) {
+                    btn.classList.add('nav-active', 'bg-brand-orange', 'text-white');
+                    btn.classList.remove('text-gray-500');
+                    
+                    // Mobile-specific label logic
+                    const label = btn.querySelector('span');
+                    if (label) {
+                        // Only show labels on mobile if the button is active
+                        if (!window.matchMedia("(min-width: 768px)").matches) {
+                            label.classList.remove('hidden');
+                        }
+                    }
+                } else {
+                    const label = btn.querySelector('span');
+                    if (label && !window.matchMedia("(min-width: 768px)").matches) {
+                        label.classList.add('hidden');
+                    }
+                }
+            });
+        }
+    });
+}

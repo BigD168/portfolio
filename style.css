@@ -555,3 +555,81 @@ html:not(.dark) .social-link:hover {
   background: rgba(0, 240, 255, 0.05);
   border-color: rgba(0, 240, 255, 0.2);
 }
+/* Mobile Responsive Adjustments (Phones) */
+@media (max-width: 768px) {
+  /* Reduce font sizes so they fit the viewport */
+  h1, .hero-title {
+    font-size: 2.8rem !important; /* Adjust based on your actual HTML tags */
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem !important;
+    line-height: 1.5;
+  }
+
+  /* Prevent the horizontal animation from pushing text off-screen */
+  @keyframes infinite-slide-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-10px); /* Smaller movement on mobile */
+    }
+    10%, 90% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(10px);
+    }
+  }
+
+  /* Increase spacing between lines to prevent overlap */
+  .reveal-text {
+    margin-bottom: 0.5rem;
+    display: block; /* Ensures each line stays on its own row */
+  }
+}
+/* Mobile Responsive Overrides */
+@media (max-width: 768px) {
+  /* 1. Prevent overlapping text and scale down headings */
+  h1, .hero-title, .reveal-text {
+    font-size: 10vw !important; /* Scales relative to screen width */
+    line-height: 1.2 !important;
+    white-space: normal !important; /* Allows text to wrap */
+    word-break: break-word;
+  }
+
+  /* 2. Fix the "Clipping" - reduce the slide distance on mobile */
+  .reveal-left, .reveal-right, .reveal {
+    transform: translateY(15px) !important; /* Move up instead of sideways */
+    transition: all 0.6s ease-out;
+  }
+
+  .reveal-left.active, .reveal-right.active, .reveal.active {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+  }
+
+  /* 3. Adjust the Infinite Slide for mobile */
+  @keyframes infinite-slide-left {
+    0% { opacity: 0; transform: translateX(-10px); }
+    10%, 90% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(10px); }
+  }
+
+  /* 4. Add padding to sections so text doesn't touch the edge */
+  section {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    overflow-x: hidden; /* Strict container lock */
+  }
+
+  /* 5. Shrink background blobs for performance */
+  .blob {
+    width: 250px !important;
+    height: 250px !important;
+    filter: blur(60px) !important;
+  }
+}
